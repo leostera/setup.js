@@ -7,7 +7,7 @@ if(!config.username || !config.password) {
 makeShellFile('leostera', '/user/repos');
 makeShellFile('ng2', '/orgs/ng2/repos');
 makeShellFile('soccergut', '/orgs/soccergut/repos');
-makeShellFile('componentizr', '/orgs/componentizr/repos');
+// makeShellFile('componentizr', '/orgs/componentizr/repos');
 
 function makeShellFile (name, endpoint) {
 	var write  = require('fs').writeFileSync;
@@ -29,7 +29,7 @@ function makeShellFile (name, endpoint) {
 		response.on('end', function () {
 			var repos = JSON.parse(jsonString).map(function (r) {
 				if(/setup.js$/.test(r.name)) return;
-				return "git clone "+r.git_url+" ~/Repositories/"+r.full_name;
+				return "git clone "+r.ssh_url+" ~/Repositories/"+r.full_name;
 			}).join('\n');
 
 			write(filename, repos);
