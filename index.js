@@ -1,3 +1,9 @@
+var config = require('./config.json');
+
+if(!config.username || !config.password) {
+ 	throw "Please configure your username/password in the config.json file";
+}
+
 makeShellFile('leostera', '/user/repos');
 makeShellFile('ng2', '/orgs/ng2/repos');
 makeShellFile('soccergut', '/orgs/soccergut/repos');
@@ -5,9 +11,8 @@ makeShellFile('componentizr', '/orgs/componentizr/repos');
 
 function makeShellFile (name, endpoint) {
 	var write  = require('fs').writeFileSync;
-	var config = require('./config.json');
 
-	filename = 'repos.'+name+'.sh';
+	var filename = 'repos.'+name+'.sh';
 
 	console.log('    * getting '+name+' repos');
 	require('https').request({
