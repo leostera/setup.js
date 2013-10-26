@@ -29,7 +29,7 @@ function makeShellFile (name, endpoint) {
 		response.on('end', function () {
 			var repos = JSON.parse(jsonString).map(function (r) {
 				if(/setup.js$/.test(r.name)) return;
-				return "git clone "+r.ssh_url+" ~/Repositories/"+r.full_name;
+				return "git clone "+r.ssh_url+" ~/repos/"+r.full_name;
 			}).join('\n');
 
 			write(filename, repos);
