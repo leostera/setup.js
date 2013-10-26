@@ -8,7 +8,7 @@ brew install git
 
 mkdir ~/tmp
 cd ~/tmp
-git init https://github.com/joyent/node tmp/node
+git clone --depth 1 https://github.com/joyent/node tmp/node
 cd node
 ./configure
 make
@@ -24,3 +24,5 @@ cd ~/repos/setup.js
 npm i
 npm start
 sh ./repos*.sh
+
+rm -rf ~/tmp
