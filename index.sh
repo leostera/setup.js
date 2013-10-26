@@ -15,12 +15,12 @@ make
 make test
 make install
 
-if [[! -d ~/Repositories]]; then
-	mkdir ~/Repositories;
+if [[! -d ~/repos]]; then
+	mkdir ~/repos;
 fi
 
-git clone https://github.com/leostera/setup.js ~/Repositories/setup.js
-cd ~/Repositories/setup.js
+git clone https://github.com/leostera/setup.js ~/repos/setup.js
+cd ~/repos/setup.js
 npm i
 npm start
 sh ./repos*.sh
