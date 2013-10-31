@@ -4,9 +4,12 @@
   "description": "my setup scripts",
   "main": "index.js",
   "scripts": {
-  	"start": "node index.js",
+    "start": "node index.js",
     "test": "echo \"get out\";"
   },
   "author": "Leandro Ostera <me@leostera.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "commander": "~2.0.0"
+  }
 }
